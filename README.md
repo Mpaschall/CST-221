@@ -1,1 +1,1 @@
-# CST-221
+My name is Mathew Paschall, and this is my repository for the CST-221 class. This class is about operating systems, and the initial posts will be using MINIX 3. I am a second year computer programming student, and I am looking forward to this class.
