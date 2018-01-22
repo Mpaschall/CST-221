@@ -1,0 +1,13 @@
+#!/root
+
+echo "First test echo";
+
+x=5;
+y=7;
+z=$((x+y));
+
+echo "$z";
+
+echo $name;
+
+printf "test a print last";
