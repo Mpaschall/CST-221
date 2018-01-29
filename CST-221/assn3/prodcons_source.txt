@@ -1,0 +1,57 @@
+/*Mathew Paschall
+This solution created methods for get(), put(), produce(), and consume(), as well as consumer, and producer. It then calls these methods from the main method to execute the code. A while loop controls the number of iterations for producer and consumer as pthread was not available to me during this assignment. */
+
+#include <stdio.h>
+int theProduct=0;
+
+int get(){
+int gotten=theProduct-1;
+printf("got %d \n", gotten);
+return theProduct;
+}
+
+void put(int theProduct){
+printf("put %d \n", theProduct);
+}
+
+int produce(){
+printf("produced %d \n", theProduct);
+return theProduct++;
+}
+
+void consume(int i){
+int consumed=i-1;
+printf("consumed %i \n", consumed);
+}
+
+void producer(){
+int i;
+while(1){
+i=produce();
+put(i);
+if(i>=0){
+break;
+}
+}
+}
+
+void consumer(){
+int i;
+while(1){
+i=get();
+consume(i);
+if(i>=0){
+break;
+}
+}
+}
+
+int main(){
+int count=0;
+while(count<5){
+producer();
+consumer();
+count++;
+}
+return 0;
+}
