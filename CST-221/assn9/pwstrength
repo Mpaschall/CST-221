@@ -1,0 +1,51 @@
+#!/bin/bash
+
+#get password
+
+echo "what is your password?";
+read pw;
+length=${#pw}
+
+#initialize count
+
+count='0';
+
+#contain special character?
+
+if [[ $pw == *[^a-zA-Z0-9]* ]]
+
+then
+	count=$((count + 1))
+else
+	echo "no special characters found"
+fi
+
+#contains a number?
+
+regex='[0-9]'
+
+if [[ $pw =~ $regex ]]
+
+then
+	count=$((count + 1))
+else
+	echo "no numbers"
+fi
+
+#check length
+
+if [[ $length > '7' ]]
+
+then
+	count=$((count + 1))
+
+else
+	echo "Password is too short"
+fi
+
+#did it pass all checks?
+
+if [[ $count == 3 ]]
+then
+	echo "Your password passed all checks"
+fi
